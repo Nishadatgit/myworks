@@ -1,9 +1,9 @@
 import 'dart:math';
 
+import 'package:about_app/screens/profile.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:my_app/screens/profile.dart';
 
 import 'about.dart';
 
