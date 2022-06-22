@@ -83,10 +83,56 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         // The body widget will be displayed under the SlidingSheet
         // and a parallax effect can be applied to it.
-        body: const Center(
-          child: Text(
-            'This widget is below the SlidingSheet',
-            style: TextStyle(color: Colors.white),
+        body: Container(
+          child: Stack(
+            children: [
+              Container(
+                margin: EdgeInsets.only(left: 75),
+                child: ShaderMask(
+                    shaderCallback: (rect) {
+                      return const LinearGradient(
+                              begin: Alignment.center,
+                              end: Alignment.bottomCenter,
+                              colors: [Colors.black, Colors.transparent])
+                          .createShader(
+                              Rect.fromLTRB(0, 0, rect.width, rect.height));
+                    },
+                    blendMode: BlendMode.dstIn,
+                    child: Image.asset(
+                      'assets/images/pic2.png',
+                      height: 400,
+                      fit: BoxFit.contain,
+                    )),
+              ),
+              Container(
+                alignment: Alignment.center,
+                margin: EdgeInsets.only(
+                    top: MediaQuery.of(context).size.height * 0.49),
+                child: Column(
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).pushNamed('about');
+                      },
+                      child: const Text(
+                        'Mohamed Nishad',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 40,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 2,
+                    ),
+                    const Text(
+                      'Flutter Developer',
+                      style: TextStyle(color: Colors.white, fontSize: 20),
+                    )
+                  ],
+                ),
+              ),
+            ],
           ),
         ),
         builder: (context, state) {
