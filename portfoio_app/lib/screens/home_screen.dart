@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:portfoio_app/screens/about_screen.dart';
 import 'package:sliding_sheet/sliding_sheet.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -62,12 +63,8 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      extendBodyBehindAppBar: true,
+      // extendBodyBehindAppBar: true,
       backgroundColor: Colors.black,
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.transparent,
-      ),
       body: SlidingSheet(
         elevation: 8,
         cornerRadius: 50,
@@ -83,11 +80,25 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         // The body widget will be displayed under the SlidingSheet
         // and a parallax effect can be applied to it.
-        body: Container(
+        body: SizedBox(
           child: Stack(
             children: [
               Container(
-                margin: EdgeInsets.only(left: 75),
+                padding: const EdgeInsets.only(top: 80, left: 20),
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const AboutScreen(),
+                    ));
+                  },
+                  child: const Icon(
+                    Icons.info_outline,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.only(left: 75),
                 child: ShaderMask(
                     shaderCallback: (rect) {
                       return const LinearGradient(
@@ -109,25 +120,23 @@ class _HomeScreenState extends State<HomeScreen> {
                 margin: EdgeInsets.only(
                     top: MediaQuery.of(context).size.height * 0.49),
                 child: Column(
-                  children: [
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.of(context).pushNamed('about');
-                      },
-                      child: const Text(
-                        'Mohamed Nishad',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 40,
-                            fontWeight: FontWeight.bold),
-                      ),
+                  children: const [
+                    Text(
+                      'Mohamed Nishad',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 40,
+                          fontWeight: FontWeight.bold),
                     ),
-                    const SizedBox(
+                    SizedBox(
                       height: 2,
                     ),
-                    const Text(
-                      'Flutter Developer',
-                      style: TextStyle(color: Colors.white, fontSize: 20),
+                    Hero(
+                      tag: 'name',
+                      child: Text(
+                        'Flutter Developer',
+                        style: TextStyle(color: Colors.white, fontSize: 20),
+                      ),
                     )
                   ],
                 ),

@@ -31,8 +31,8 @@ dependencies:
   flutter:
     sdk: flutter
   font_awesome_flutter: ^10.1.0
-  
   sliding_sheet: ^0.5.2
+  url_launcher: ^6.1.4
 
 dev_dependencies:
   flutter_lints: ^2.0.0
