@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:portfoio_app/screens/about_screen.dart';
+
 import 'package:sliding_sheet/sliding_sheet.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -67,12 +68,12 @@ class _HomeScreenState extends State<HomeScreen> {
       backgroundColor: Colors.black,
       body: SlidingSheet(
         elevation: 8,
-        cornerRadius: 50,
+        cornerRadius: 40,
         snapSpec: const SnapSpec(
           // Enable snapping. This is true by default.
           snap: true,
           // Set custom snapping points.
-          snappings: [0.38, 0.7, 1.0],
+          snappings: [0.10, 0.7, 1.0],
 
           // Define to what the snappings relate to. In this case,
           // the total available space that the sheet can expand to.
@@ -83,20 +84,6 @@ class _HomeScreenState extends State<HomeScreen> {
         body: SizedBox(
           child: Stack(
             children: [
-              Container(
-                padding: const EdgeInsets.only(top: 80, left: 20),
-                child: GestureDetector(
-                  onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const AboutScreen(),
-                    ));
-                  },
-                  child: const Icon(
-                    Icons.info_outline,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
               Container(
                 margin: const EdgeInsets.only(left: 75),
                 child: ShaderMask(
@@ -118,7 +105,7 @@ class _HomeScreenState extends State<HomeScreen> {
               Container(
                 alignment: Alignment.center,
                 margin: EdgeInsets.only(
-                    top: MediaQuery.of(context).size.height * 0.49),
+                    top: MediaQuery.of(context).size.height * 0.53),
                 child: Column(
                   children: const [
                     Text(
@@ -137,10 +124,87 @@ class _HomeScreenState extends State<HomeScreen> {
                         'Flutter Developer',
                         style: TextStyle(color: Colors.white, fontSize: 20),
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),
+              Padding(
+                padding: EdgeInsets.only(
+                    top: MediaQuery.of(context).size.height * 0.67),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      width: 120,
+                      child: TextButton(
+                        onPressed: () {},
+                        child: const Text('Hire me'),
+                        style: TextButton.styleFrom(
+                            backgroundColor: Colors.white,
+                            primary: Colors.black),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              Padding(
+                padding: EdgeInsets.only(
+                    top: MediaQuery.of(context).size.height * 0.75),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    IconButton(
+                      onPressed: () {
+                        Uri url =
+                            Uri.parse('https://www.instagram.com/_nishxd/');
+                        launchUrl(url);
+                      },
+                      icon: const Icon(
+                        FontAwesomeIcons.instagram,
+                        color: Colors.white,
+                      ),
+                    ),
+                    IconButton(
+                      onPressed: () {},
+                      icon: const Icon(
+                        FontAwesomeIcons.github,
+                        color: Colors.white,
+                      ),
+                    ),
+                    IconButton(
+                      onPressed: () {},
+                      icon: const Icon(
+                        FontAwesomeIcons.facebook,
+                        color: Colors.white,
+                      ),
+                    ),
+                    IconButton(
+                      onPressed: () {},
+                      icon: const Icon(
+                        FontAwesomeIcons.twitter,
+                        color: Colors.white,
+                      ),
+                    ),
+                    IconButton(
+                      onPressed: () {},
+                      icon: const Icon(
+                        FontAwesomeIcons.linkedin,
+                        color: Colors.white,
+                      ),
+                    ),
+                    IconButton(
+                      onPressed: () {},
+                      icon: const Icon(
+                        FontAwesomeIcons.whatsapp,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ],
+                ),
+              )
             ],
           ),
         ),
