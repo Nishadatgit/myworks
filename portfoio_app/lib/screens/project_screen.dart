@@ -45,7 +45,7 @@ class _ProjectScreenState extends State<ProjectScreen> {
                 style: const TextStyle(color: Colors.white70, fontSize: 16),
               ),
               const SizedBox(
-                height: 15,
+                height: 10,
               ),
               Row(
                 children: [
@@ -56,7 +56,7 @@ class _ProjectScreenState extends State<ProjectScreen> {
                   ),
                   Text(
                     star,
-                    style: TextStyle(color: Colors.white70),
+                    style: const TextStyle(color: Colors.white70),
                   ),
                   Expanded(child: Container()),
                   IconButton(
@@ -80,7 +80,7 @@ class _ProjectScreenState extends State<ProjectScreen> {
       backgroundColor: Colors.black,
       appBar: AppBar(
         title: const Text('Projects'),
-        backgroundColor: const Color(0xff252525),
+        backgroundColor: Colors.black,
       ),
       body: SingleChildScrollView(
         child: Container(
