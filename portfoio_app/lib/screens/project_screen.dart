@@ -90,9 +90,9 @@ class _ProjectScreenState extends State<ProjectScreen> {
             children: [
               myProjects(
                   'Flutter', 'Money Manager', 'Personal money manger', ' 10'),
-              myProjects('Flutter', 'Portfolio App', 'My portfolio app', ' 10'),
+              myProjects('Flutter', 'Portfolio App', 'My portfolio app', ' 8'),
               myProjects(
-                  'Python', 'Legal Advisor', 'Advocate management app', ' 10'),
+                  'Python', 'Legal Advisor', 'Advocate management app', ' 19'),
               myProjects(
                   'Flutter', 'Money Manager', 'Personal money manger', ' 10'),
               myProjects(
