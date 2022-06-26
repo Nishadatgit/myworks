@@ -13,7 +13,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: kBackgroundColor,
       appBar: myappbar(),
-      body: MyBody(),
+      body: const MyBody(),
     );
   }
 

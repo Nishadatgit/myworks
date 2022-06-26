@@ -3,9 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:project_aqua/constraints.dart';
-import 'package:project_aqua/screens/home/header_with_search_bar.dart';
+
+import 'package:project_aqua/screens/home/components/header_with_search_bar.dart';
 
 class MyBody extends StatelessWidget {
   const MyBody({Key? key}) : super(key: key);

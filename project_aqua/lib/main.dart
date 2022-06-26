@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_aqua/constraints.dart';
-import 'package:project_aqua/screens/home/components/home.dart';
+import 'package:project_aqua/screens/home/home.dart';
 
 void main(List<String> args) {
   runApp(const MyApp());
