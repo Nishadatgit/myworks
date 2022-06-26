@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:portfoio_app/screens/project_screen.dart';
 
 import 'package:sliding_sheet/sliding_sheet.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -64,6 +65,35 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        backgroundColor: Colors.black,
+        leading: PopupMenuButton(
+          position: PopupMenuPosition.under,
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+          color: const Color(0xff252525),
+          icon: const Icon(Icons.menu),
+          itemBuilder: (context) {
+            return [
+              PopupMenuItem(
+                child: TextButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                    Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const ProjectScreen(),
+                    ));
+                  },
+                  child: const Text(
+                    'My Projects',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+              )
+            ];
+          },
+        ),
+      ),
       // extendBodyBehindAppBar: true,
       backgroundColor: Colors.black,
       body: SlidingSheet(
