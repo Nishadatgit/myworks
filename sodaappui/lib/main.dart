@@ -14,9 +14,9 @@ class MyApp extends StatelessWidget {
       title: 'sodaapp',
       themeMode: ThemeMode.dark,
       theme: ThemeData(
-        
+        primarySwatch: Colors.yellow
       ),
-      home: const SodaHome() ,
+      home:  SodaHome() ,
     );
   }
 }
