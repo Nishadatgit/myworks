@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         
       ),
-      home:const SodaHome() ,
+      home: const SodaHome() ,
     );
   }
 }
