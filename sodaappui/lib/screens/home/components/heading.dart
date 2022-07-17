@@ -11,7 +11,7 @@ class HeadingTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 10.0, left: 20, right: 20),
+      padding: const EdgeInsets.only(top: 10.0, left: 12, right: 12),
       child: SizedBox(
         height: size.height * 0.080,
         width: size.width * 0.5,
@@ -40,7 +40,7 @@ class TitleWithButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(top: 10.0, left: 20, right: 20),
+      margin: const EdgeInsets.only(top: 10.0, left: 12, right: 12),
       height: 40,
       width: size.width,
       child: Row(

@@ -12,7 +12,7 @@ class CategoryArea extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 20, right: 20),
+      padding: const EdgeInsets.only(left: 12, right: 12),
       child: SizedBox(
         width: size.width,
         child: Row(

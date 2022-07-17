@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_navigation/get_navigation.dart';
 import 'package:sodaappui/screens/home/soda_home.dart';
+import 'package:sodaappui/screens/product_view/product_view_main.dart';
 
 void main(List<String> args) {
   runApp(const MyApp());
@@ -10,13 +12,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'sodaapp',
       themeMode: ThemeMode.dark,
-      theme: ThemeData(
-        primarySwatch: Colors.yellow
-      ),
-      home:  SodaHome() ,
+      theme: ThemeData(primarySwatch: Colors.yellow),
+      home: SodaHome(),
     );
   }
 }

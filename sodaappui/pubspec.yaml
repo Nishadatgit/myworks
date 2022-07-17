@@ -29,10 +29,11 @@ environment:
 dependencies:
   cupertino_icons: ^1.0.2
   custom_navigation_bar: ^0.8.2
-  
   flutter:
     sdk: flutter
+  flutter_rating_bar: ^4.0.1
   flutter_svg: ^1.1.1+1
+  get: ^4.6.5
   sliver_tools: ^0.2.7
 
 dev_dependencies:

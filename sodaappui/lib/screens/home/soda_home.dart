@@ -58,45 +58,32 @@ class SodaHome extends StatelessWidget {
             ],
           ),
         ),
-        bottomNavigationBar: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 5),
-          child: Container(
-            padding: const EdgeInsets.all(0),
-            height: 50,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                border: Border.all(
-                    color: const Color.fromARGB(255, 200, 189, 96), width: 1)),
-            child: ValueListenableBuilder(
-              valueListenable: selectedIndex,
-              builder: ((context, value, child) {
-                return CustomNavigationBar(
-                  opacity: 1,
-                  currentIndex: selectedIndex.value,
-                  selectedColor: Colors.yellow,
-                  bubbleCurve: Curves.easeIn,
-                  iconSize: 20,
-                  backgroundColor: Colors.transparent,
-                  elevation: 0,
-                  isFloating: true,
-                  borderRadius: const Radius.circular(10),
-                  items: [
-                    CustomNavigationBarItem(icon: const Icon(Icons.home)),
-                    CustomNavigationBarItem(icon: const Icon(Icons.search)),
-                    CustomNavigationBarItem(
-                        icon: const Icon(Icons.shopping_bag)),
-                    CustomNavigationBarItem(
-                        icon: const Icon(Icons.favorite_outline)),
-                    CustomNavigationBarItem(
-                        icon: const Icon(Icons.person_outline)),
-                  ],
-                  onTap: (index) {
-                    selectedIndex.value = index;
-                  },
-                );
-              }),
-            ),
-          ),
+        bottomNavigationBar: ValueListenableBuilder(
+          valueListenable: selectedIndex,
+          builder: ((context, value, child) {
+            return CustomNavigationBar(
+              opacity: 1,
+              currentIndex: selectedIndex.value,
+              selectedColor: Colors.yellow,
+              bubbleCurve: Curves.easeIn,
+              iconSize: 20,
+              backgroundColor: const Color.fromARGB(255, 47, 46, 46),
+              elevation: 0,
+              isFloating: false,
+              borderRadius: const Radius.circular(10),
+              items: [
+                CustomNavigationBarItem(icon: const Icon(Icons.home)),
+                CustomNavigationBarItem(icon: const Icon(Icons.search)),
+                CustomNavigationBarItem(icon: const Icon(Icons.shopping_bag)),
+                CustomNavigationBarItem(
+                    icon: const Icon(Icons.favorite_outline)),
+                CustomNavigationBarItem(icon: const Icon(Icons.person_outline)),
+              ],
+              onTap: (index) {
+                selectedIndex.value = index;
+              },
+            );
+          }),
         ),
       ),
     );
