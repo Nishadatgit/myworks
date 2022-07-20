@@ -20,15 +20,17 @@ class PopularSodaArea extends StatelessWidget {
         height: size.height * 0.26,
         padding: const EdgeInsets.only(top: 10),
         child: ListView.builder(
-          physics:const BouncingScrollPhysics(),
+          physics: const BouncingScrollPhysics(),
           padding: const EdgeInsets.all(10),
           itemBuilder: (ctx, index) {
             final pros = popular[index];
             return GestureDetector(
               onTap: () {
-                Get.to(() => ProductView(clickedItem: pros),
-                    transition: Transition.fadeIn,
-                    duration: const Duration(seconds: 1));
+                Get.to(
+                  () => ProductView(clickedItem: pros),
+                  transition: Transition.cupertino,
+                  duration: const Duration(milliseconds: 500),
+                );
               },
               child: Container(
                 margin: const EdgeInsets.only(top: 10, right: 12),

@@ -15,7 +15,10 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'sodaapp',
       themeMode: ThemeMode.dark,
-      theme: ThemeData(primarySwatch: Colors.yellow),
+      theme: ThemeData(
+          primarySwatch: Colors.yellow,
+          bottomSheetTheme:
+            const  BottomSheetThemeData(backgroundColor: Colors.transparent)),
       home: SodaHome(),
     );
   }

@@ -4,6 +4,9 @@ import 'package:get/get.dart';
 import 'package:sodaappui/screens/home/components/heading.dart';
 import 'package:sodaappui/screens/home/data/products.dart';
 
+import 'components/appbar.dart';
+import 'components/review_adder.dart';
+
 class ProductView extends StatefulWidget {
   ProductView({Key? key, required this.clickedItem}) : super(key: key);
   final Product clickedItem;
@@ -30,20 +33,20 @@ class _ProductViewState extends State<ProductView> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      body: SafeArea(
-        child: Container(
-          height: size.height,
-          width: size.width,
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomCenter,
-                tileMode: TileMode.clamp,
-                colors: [
-                  Colors.black.withOpacity(0.6),
-                  Colors.black.withOpacity(0.99),
-                ]),
-          ),
+      body: Container(
+        height: size.height,
+        width: size.width,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomCenter,
+              tileMode: TileMode.clamp,
+              colors: [
+                Colors.black.withOpacity(0.6),
+                Colors.black.withOpacity(0.99),
+              ]),
+        ),
+        child: SafeArea(
           child: Column(
             children: [
               SizedBox(
@@ -227,7 +230,7 @@ class _ProductViewState extends State<ProductView> {
               Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 12, vertical: 5),
-                child: Container(
+                child: SizedBox(
                   height: 60,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
@@ -245,133 +248,38 @@ class _ProductViewState extends State<ProductView> {
                   ),
                 ),
               ),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 12, vertical: 20),
-                child: Row(
-                  children: [
-                    Text(
-                      '\$${widget.clickedItem.price}',
-                      style: const TextStyle(color: Colors.white, fontSize: 30),
-                    ),
-                    const Spacer(),
-                    Container(
-                      alignment: Alignment.center,
-                      width: 200,
-                      height: 40,
-                      decoration: BoxDecoration(
-                          color: widget.clickedItem.shadow,
-                          borderRadius: BorderRadius.circular(10),
-                          boxShadow: [
-                            BoxShadow(
-                                color: widget.clickedItem.shadow,
-                                blurRadius: 20,
-                                spreadRadius: 1)
-                          ]),
-                      child: const Text(
-                        'Buy Now',
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16),
-                      ),
-                    )
-                  ],
-                ),
-              )
             ],
           ),
         ),
       ),
-    );
-  }
-}
-
-class RiviewAdder extends StatelessWidget {
-  const RiviewAdder({Key? key, this.isAdduser = false, required this.image})
-      : super(key: key);
-
-  final bool isAdduser;
-  final String image;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 5),
-      child: CircleAvatar(
-          minRadius: 25,
-          backgroundColor:
-              isAdduser ? const Color.fromARGB(255, 42, 41, 41) : null,
-          backgroundImage: isAdduser ? null : AssetImage(image),
-          child: isAdduser
-              ? Icon(
-                  Icons.add,
-                  color: Colors.white.withOpacity(0.8),
-                )
-              : null),
-    );
-  }
-}
-
-class AppBarRow extends StatelessWidget {
-  const AppBarRow({
-    Key? key,
-    required this.size,
-    required this.offwhite,
-  }) : super(key: key);
-
-  final Size size;
-  final Color offwhite;
-
-  @override
-  Widget build(BuildContext context) {
-    return Positioned(
-      top: 10,
-      right: 12,
-      left: 12,
-      child: SizedBox(
-        width: size.width,
+      bottomSheet: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Container(
-              height: 40,
-              width: 40,
-              decoration: const BoxDecoration(
-                  color: Color.fromARGB(255, 154, 150, 150),
-                  shape: BoxShape.circle),
-              child: IconButton(
-                onPressed: () {
-                  Get.back();
-                },
-                icon: Icon(Icons.arrow_back, size: 19, color: offwhite),
-              ),
+            Text(
+              '\$${widget.clickedItem.price}',
+              style: const TextStyle(color: Colors.white, fontSize: 30),
             ),
+            const Spacer(),
             Container(
+              alignment: Alignment.center,
+              width: 200,
               height: 40,
-              width: 40,
-              decoration: const BoxDecoration(
-                  color: Color.fromARGB(255, 154, 150, 150),
-                  shape: BoxShape.circle),
-              child: Stack(
-                alignment: Alignment.center,
-                children: [
-                  IconButton(
-                    onPressed: () {},
-                    icon: Icon(Icons.notifications_outlined,
-                        size: 21, color: offwhite),
-                  ),
-                  Positioned(
-                    top: 8,
-                    right: 6,
-                    child: Container(
-                      height: 8,
-                      width: 8,
-                      decoration: const BoxDecoration(
-                          color: Colors.yellow, shape: BoxShape.circle),
-                    ),
-                  )
-                ],
+              decoration: BoxDecoration(
+                  color: widget.clickedItem.shadow,
+                  borderRadius: BorderRadius.circular(10),
+                  boxShadow: [
+                    BoxShadow(
+                        color: widget.clickedItem.shadow,
+                        blurRadius: 20,
+                        spreadRadius: 1)
+                  ]),
+              child: const Text(
+                'Buy Now',
+                style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16),
               ),
             )
           ],
